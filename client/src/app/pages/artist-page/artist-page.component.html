@@ -1,0 +1,37 @@
+<div *ngIf="artist" class="row">
+  <div class="col-6">
+    <h1>{{ artist.name }}</h1>
+    <img id="artistImg" src="{{ artist.imageURL }}" />
+    <p>
+      <a
+        class="btn btn-light"
+        role="button"
+        target="_blank"
+        href="{{ artist.url }}"
+        >Open {{ artist.name }} on Spotify</a
+      >
+    </p>
+  </div>
+  <div class="col-2">
+    <h3>Genres</h3>
+    <ul>
+      <li *ngFor="let genre of artist.genres">{{ genre }}</li>
+    </ul>
+    <p></p>
+  </div>
+  <div class="col-4">
+    <h3>{{ artist.name }}'s Top Tracks</h3>
+    <app-track-list [tracks]="topTracks"></app-track-list>
+  </div>
+</div>
+
+<div *ngIf="artist" class="row">
+  <div class="col-6">
+    <h3>{{ artist.name }}'s Albums</h3>
+    <app-carousel [resources]="albums"></app-carousel>
+  </div>
+  <div class="col-6">
+    <h3>Similar Artists</h3>
+    <app-carousel [resources]="relatedArtists"></app-carousel>
+  </div>
+</div>

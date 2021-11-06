@@ -1,0 +1,28 @@
+<table class="table table-sm table-light table-striped" *ngIf="tracks">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Track</th>
+      <th scope="col">Duration</th>
+      <th scope="col" *ngIf="!hideArtist">Primary Artist</th>
+      <th scope="col" *ngIf="!hideAlbum">Album</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let track of tracks; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>
+        <a href="{{ track.url }}">{{ track.name }}</a>
+      </td>
+      <td>{{ track.durationStr }}</td>
+      <td *ngIf="!hideArtist">
+        <a href="{{ track.primaryArtist.url }}">{{
+          track.primaryArtist.name
+        }}</a>
+      </td>
+      <td *ngIf="!hideAlbum">
+        <a href="{{ track.album.url }}">{{ track.album.name }}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<div class="row">
+  <div *ngIf="track" class="col-6">
+    <h1>{{ track.name }}</h1>
+    <p>
+      Track on <a href="{{ track.album.url }}">{{ track.album.name }}</a>
+    </p>
+    <div>
+      <p *ngFor="let artist of track.artists">
+        Artist: <a href="{{ artist.url }}">{{ artist.name }}</a>
+      </p>
+    </div>
+    <p>Duration: {{ track.durationStr }}</p>
+    <p>
+      <a
+        class="btn btn-light"
+        role="button"
+        target="_blank"
+        href="{{ track.url }}"
+        >Open {{ track.name }} on Spotify</a
+      >
+    </p>
+  </div>
+  <div *ngIf="audioFeatures" class="col-6">
+    <app-thermometer
+      *ngFor="let feature of audioFeatures"
+      [feature]="feature"
+    ></app-thermometer>
+  </div>
+</div>

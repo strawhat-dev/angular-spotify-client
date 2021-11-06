@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { ResourceData } from './resource-data';\nexport class ArtistData extends ResourceData {\n  constructor(objectModel) {\n    super(objectModel);\n    this.category = 'artist';\n    this.genres = objectModel['genres'];\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
